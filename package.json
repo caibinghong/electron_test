@@ -1,6 +1,6 @@
 {
   "name": "jiutian",
-  "version": "1.1.7",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -13,12 +13,6 @@
     "postuninstall": "electron-builder install-app-deps",
     "publish": "vue-cli-service electron:build --win --x64 -p always"
   },
-  "publish": [
-    {
-      "provider": "generic",
-      "url": "https://github.com/caibinghong/electron_test/releases"
-    }
-  ],
   "main": "background.js",
   "dependencies": {
     "axios": "^0.19.2",

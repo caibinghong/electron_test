@@ -3,7 +3,7 @@ import { autoUpdater } from "electron-updater"
 import {log} from '../common/log';
 
 // const updateUrl = 'http://updater.flight.com:8000/release/'
-const updateUrl = 'https://github.com/caibinghong/electron_test/releases'
+const updateUrl = 'https://github.com/caibinghong/electron_test/releases/last'
 
 const checkUpdate = (win) =>{
 	//处理更新操作
@@ -37,18 +37,21 @@ const checkUpdate = (win) =>{
 	autoUpdater.on('error', function (error) {
 		sendUpdateMessage(returnData.error)
 		log.info(returnData.error, error)
+		console.log('error')
 	});
 
 	//检查事件
 	autoUpdater.on('checking-for-update', function () {
 		sendUpdateMessage(returnData.checking)
 		log.info(returnData.checking)
+		console.log('checking-for-update')
 	});
 
 	//发现新版本
 	autoUpdater.on('update-available', function () {
 		sendUpdateMessage(returnData.updateAva)
 		log.info(returnData.updateAva)
+		console.log('update-available')
 	});
 
 	//当前版本为最新版本
@@ -56,6 +59,7 @@ const checkUpdate = (win) =>{
 		setTimeout(function () {
 			sendUpdateMessage(returnData.updateNotAva)
 			log.info(returnData.updateNotAva)
+			console.log('update-not-available')
 		}, 1000);
 	});
 
@@ -63,6 +67,7 @@ const checkUpdate = (win) =>{
 	autoUpdater.on('download-progress', function (progressObj) {
 		win.webContents.send('downloadProgress', progressObj)
 		log.info('正在下载',progressObj)
+		console.log('download-progress')
 	});
 
 
@@ -72,6 +77,7 @@ const checkUpdate = (win) =>{
 		//退出并进行安装（这里可以做成让用户确认后再调用）
 		autoUpdater.quitAndInstall();
 		log.info("下载完毕")
+		console.log('下载完毕 update-downloaded')
 	});
 
 	//发送消息给窗口
@@ -80,7 +86,7 @@ const checkUpdate = (win) =>{
 	}
 
 	//发送请求更新
-	//autoUpdater.checkForUpdates();
+	// autoUpdater.checkForUpdates();
 }
 
 export {
