@@ -3,7 +3,7 @@ import { autoUpdater } from "electron-updater"
 import {log} from '../common/log';
 
 // const updateUrl = 'http://updater.flight.com:8000/release/'
-const updateUrl = 'https://github.com/caibinghong/electron_test/releases/last'
+// const updateUrl = 'https://github.com/caibinghong/electron_test/releases'
 
 const checkUpdate = (win) =>{
 	//处理更新操作
@@ -27,7 +27,7 @@ const checkUpdate = (win) =>{
     };
 
 	//更新连接
-	autoUpdater.setFeedURL(updateUrl);
+	// autoUpdater.setFeedURL(updateUrl);
     // const log = require("electron-log")
     // log.transports.file.level = "debug"
     // autoUpdater.logger = log

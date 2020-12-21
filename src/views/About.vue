@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h3>平台转发工具 111111111111111111111111</h3>
+    <h3>[平台转发工具] </h3>
     <p v-for="(info, key, index) in infos" :key="index">{{key}}:{{info}}</p>
   </div>
 </template>
